@@ -16,7 +16,7 @@ I'm afraid I didn't write any TDD tests for this project.  I welcome your pull r
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/MarkIannucci/ChromeUserWebSearchExtension/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
@@ -31,9 +31,3 @@ See also the list of [contributors](https://github.com/MarkIannucci/ChromeUserWe
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
