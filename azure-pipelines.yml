@@ -17,15 +17,12 @@ steps:
 
     archiveFile: '$(Build.ArtifactStagingDirectory)/EpicUserWebSearch.zip'
 
-
-
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
-    SourceFolder: ChromeWebStoreBashScript.sh
+    Contents: ChromeWebStoreBashScript.sh
 
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
-
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
