@@ -4,8 +4,7 @@ Do you want to directly search Epic's galaxy without having to wait for the gala
 
 ## Getting Started
 
-You can add me to Chrome via this link:
-https://chrome.google.com/webstore/detail/epic-userweb-search/ginlmldponabcjidalfoboonnmloeolj
+Head over to the [Chrome Webstore](https://chrome.google.com/webstore/detail/epic-userweb-search/ginlmldponabcjidalfoboonnmloeolj) to add me to Chrome 
 
 ## Running the tests
 
