@@ -22,7 +22,7 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
-    SourceFolder: .gitignore
+    SourceFolder: ChromeWebStoreBashScript.sh
 
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
