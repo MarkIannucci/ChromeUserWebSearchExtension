@@ -1,7 +1,7 @@
 {
   "name": "Epic UserWeb Search",
   "description": "Type 'uw' plus a search term into the Omnibox to search the Epic UserWeb in a new tab.",
-  "version": "1.0",
+  "version": "1.1",
   "background": {
     "scripts": ["background.js"],
     "persistent": false
