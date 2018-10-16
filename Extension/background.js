@@ -4,10 +4,15 @@ chrome.omnibox.onInputEntered.addListener(
         // if user enters a keyword after the omnibox keyword, redirect search to different destination
         var splitText = text.split(' ');
         var firstWord = splitText[0];
+        var secondWord = splitText[1];
 
         switch (firstWord.toLowerCase()) {
             case 'sherlock':
-                var newURL = 'https://sherlock.epic.com/default.aspx?view=slg/search#txt=' + encodeURIComponent(text.substring(9));
+                if (isNaN(secondWord)) {
+                    var newURL = 'https://sherlock.epic.com/default.aspx?view=slg/search#txt=' + encodeURIComponent(text.substring(9));
+                } else {
+                    var newURL = 'https://sherlock.epic.com/default.aspx?view=slg/home#id=' + secondWord + '&view=1';
+                }
                 break;
             case 'topic':
                 var newURL = 'https://userweb.epic.com/Search?Query=' + encodeURIComponent(text.substring(6));
