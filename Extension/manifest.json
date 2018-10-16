@@ -1,7 +1,7 @@
 {
   "name": "Epic UserWeb Search",
-  "description": "Type 'uw' plus a search term into the Omnibox to search the Epic UserWeb in a new tab.",
-  "version": "1.2",
+  "description": "Type 'uw ' and your search term to instantly search the Epic UserWeb. 'uw sherlock ' searches Sherlock logs.",
+  "version": "1.4",
   "background": {
     "scripts": ["background.js"],
     "persistent": false
