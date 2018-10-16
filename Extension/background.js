@@ -5,7 +5,7 @@ chrome.omnibox.onInputEntered.addListener(
         var splitText = text.split(' ');
         var firstWord = splitText[0];
 
-        switch (firstWord) {
+        switch (firstWord.toLowerCase()) {
             case 'sherlock':
                 var newURL = 'https://sherlock.epic.com/default.aspx?view=slg/search#txt=' + encodeURIComponent(text.substring(9));
                 break;
