@@ -34,6 +34,9 @@ chrome.omnibox.onInputEntered.addListener(
             case 'galaxy':
                 var newURL = 'https://galaxy.epic.com/?#Search/searchWord=' + encodeURIComponent(trimAlligators(text.substring(6)));
                 break;
+            case 'metric':
+                var newURL = 'https://datahandbook.epic.com/Search/Index?SearchWord=' + encodeURIComponent(trimAlligators(text.substring(6))) + 'type=4';
+                break;
             default:
                 var newURL = 'https://galaxy.epic.com/?#Search/searchWord=' + encodeURIComponent(trimAlligators(text));
         }
