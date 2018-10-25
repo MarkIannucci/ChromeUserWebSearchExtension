@@ -31,3 +31,7 @@ See also the list of [contributors](https://github.com/MarkIannucci/ChromeUserWe
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+## Tip Jar
+
+If you'd like to show your love to this extension, you may do so by contributing to [Safehouse Denver](https://safehouse-denver.org/get-involved/donate.html)

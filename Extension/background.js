@@ -21,6 +21,13 @@ chrome.omnibox.onInputEntered.addListener(
                     var newURL = 'https://sherlock.epic.com/default.aspx?view=slg/home#id=' + secondWord + '&view=1';
                 }
                 break;
+            case 'nova':
+                if (isNaN(secondWord)) {
+                    var newURL = 'https://nova.epic.com/Search.aspx?#addPt1&SearchTerm=' + encodeURIComponent(text.substring(5));
+                } else {
+                    var newURL = 'https://nova.epic.com/Select.aspx?RnID=' + secondWord;
+                }
+                break;
             case 'topic':
                 var newURL = 'https://userweb.epic.com/Search?Query=' + encodeURIComponent(trimAlligators(text.substring(6)));
                 break;
