@@ -23,7 +23,7 @@ chrome.omnibox.onInputEntered.addListener(
                 break;
             case 'nova':
                 if (isNaN(secondWord)) {
-                    var newURL = 'https://nova.epic.com/Search.aspx?#addPt1&SearchTerm=' + encodeURIComponent(text.substring(5));
+                    var newURL = 'https://nova.epic.com/Search.aspx?#addPt1&SearchTerm=' + encodeURIComponent(trimAlligators(text.substring(5)));
                 } else {
                     var newURL = 'https://nova.epic.com/Select.aspx?RnID=' + secondWord;
                 }
