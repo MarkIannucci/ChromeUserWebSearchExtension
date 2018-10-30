@@ -34,6 +34,18 @@ chrome.omnibox.onInputEntered.addListener(
             case 'galaxy':
                 var newURL = 'https://galaxy.epic.com/?#Search/searchWord=' + encodeURIComponent(trimAlligators(text.substring(6)));
                 break;
+            case 'dh':
+                var newURL = 'https://datahandbook.epic.com/Search/Index?SearchWord=' + encodeURIComponent(trimAlligators(text.substring(2))) + '&type=1&scf=1,2,3&auf=1';
+                break;
+            case 'cdd':
+                var newURL = 'https://datahandbook.epic.com/Search/Index?SearchWord=' + encodeURIComponent(trimAlligators(text.substring(3))) + '&type=6';
+                break;
+            case 'webserv':
+                var newURL = 'https://datahandbook.epic.com/Search/Index?SearchWord=' + encodeURIComponent(trimAlligators(text.substring(7))) + '&type=5&def=0';
+                break;
+            case 'pg':
+                var newURL = 'https://datahandbook.epic.com/Search/Index?SearchWord=' + encodeURIComponent(trimAlligators(text.substring(2))) + '&type=2';
+                break;
             case 'metric':
                 var newURL = 'https://datahandbook.epic.com/Search/Index?SearchWord=' + encodeURIComponent(trimAlligators(text.substring(6))) + '&type=4';
                 break;
