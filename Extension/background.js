@@ -5,11 +5,17 @@ function trimAlligators(searchText) {
     { return searchText; }
 };
 
+function prepSearchString(searchText) {
+    return encodeURIComponent(trimAlligators(searchText))
+};
+
 chrome.omnibox.onInputEntered.addListener(
     function (text) {
         // use a constant if the URL is getting reused
         const galaxyInitialURL = 'https://galaxy.epic.com/?#Search/searchWord=';
         const dhInitialURL = 'https://datahandbook.epic.com/Search/Index?SearchWord=';
+        const novaInitialURL = 'https://nova.epic.com/Select.aspx?';
+        const sherlockInitialURL = 'https://sherlock.epic.com/default.aspx?';
 
         // if user enters a keyword after the omnibox keyword, redirect search to different destination
         var splitText = text.split(' ');
@@ -19,41 +25,41 @@ chrome.omnibox.onInputEntered.addListener(
         switch (firstWord.toLowerCase()) {
             case 'sherlock':
                 if (isNaN(secondWord)) {
-                    var newURL = 'https://sherlock.epic.com/default.aspx?view=slg/search#txt=' + encodeURIComponent(trimAlligators(text.substring(9)));
+                    var newURL = sherlockInitialURL + 'view=slg/search#txt=' + prepSearchString(text.substring(9));
                 } else {
-                    var newURL = 'https://sherlock.epic.com/default.aspx?view=slg/home#id=' + secondWord + '&view=1';
+                    var newURL = sherlockInitialURL + 'view=slg/home#id=' + secondWord + '&view=1';
                 }
                 break;
             case 'nova':
                 if (isNaN(secondWord)) {
-                    var newURL = 'https://nova.epic.com/Search.aspx?#addPt1&SearchTerm=' + encodeURIComponent(trimAlligators(text.substring(5)));
+                    var newURL = novaInitialURL + '#addPt1&SearchTerm=' + prepSearchString(text.substring(5));
                 } else {
-                    var newURL = 'https://nova.epic.com/Select.aspx?RnID=' + secondWord;
+                    var newURL = novaInitialURL + 'RnID=' + secondWord;
                 }
                 break;
             case 'topic':
-                var newURL = 'https://userweb.epic.com/Search?Query=' + encodeURIComponent(trimAlligators(text.substring(6)));
+                var newURL = 'https://userweb.epic.com/Search?Query=' + prepSearchString(text.substring(6));
                 break;
             case 'galaxy':
-                var newURL = galaxyInitialURL + encodeURIComponent(trimAlligators(text.substring(6)));
+                var newURL = galaxyInitialURL + prepSearchString(text.substring(6));
                 break;
             case 'dh':
-                var newURL = dhInitialURL + encodeURIComponent(trimAlligators(text.substring(2))) + '&type=1&scf=1,2,3&auf=1';
+                var newURL = dhInitialURL + prepSearchString(text.substring(2)) + '&type=1&scf=1,2,3&auf=1';
                 break;
             case 'cdd':
-                var newURL = dhInitialURL + encodeURIComponent(trimAlligators(text.substring(3))) + '&type=6';
+                var newURL = dhInitialURL + prepSearchString(text.substring(3)) + '&type=6';
                 break;
             case 'webserv':
-                var newURL = dhInitialURL + encodeURIComponent(trimAlligators(text.substring(7))) + '&type=5&def=0';
+                var newURL = dhInitialURL + prepSearchString(text.substring(7)) + '&type=5&def=0';
                 break;
             case 'pg':
-                var newURL = dhInitialURL + encodeURIComponent(trimAlligators(text.substring(2))) + '&type=2';
+                var newURL = dhInitialURL + prepSearchString(text.substring(2)) + '&type=2';
                 break;
             case 'metric':
-                var newURL = dhInitialURL + encodeURIComponent(trimAlligators(text.substring(6))) + '&type=4';
+                var newURL = dhInitialURL + prepSearchString(text.substring(6)) + '&type=4';
                 break;
             default:
-                var newURL = galaxyInitialURL + encodeURIComponent(trimAlligators(text));
+                var newURL = galaxyInitialURL + prepSearchString(text);
         }
 
         chrome.tabs.update({ url: newURL });
