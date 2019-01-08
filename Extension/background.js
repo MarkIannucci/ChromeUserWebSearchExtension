@@ -31,7 +31,7 @@ chrome.omnibox.onInputEntered.addListener(
                 }
                 break;
             case 'ra':
-                var newURL = sherlockInitialURL + 'view=ra/search#txt=' + prepSearchString(text.substring(2));
+                var newURL = sherlockInitialURL + 'view=ra/search#txt=' + prepSearchString(text.substring(3));
                 break;
             case 'nova':
                 if (isNaN(secondWord)) {
@@ -44,22 +44,22 @@ chrome.omnibox.onInputEntered.addListener(
                 var newURL = 'https://userweb.epic.com/Search?Query=' + prepSearchString(text.substring(6));
                 break;
             case 'galaxy':
-                var newURL = galaxyInitialURL + prepSearchString(text.substring(6));
+                var newURL = galaxyInitialURL + prepSearchString(text.substring(7));
                 break;
             case 'dh':
-                var newURL = dhInitialURL + prepSearchString(text.substring(2)) + '&type=1&scf=1,2,3&auf=1';
+                var newURL = dhInitialURL + prepSearchString(text.substring(3)) + '&type=1&scf=1,2,3&auf=1';
                 break;
             case 'cdd':
-                var newURL = dhInitialURL + prepSearchString(text.substring(3)) + '&type=6';
+                var newURL = dhInitialURL + prepSearchString(text.substring(4)) + '&type=6';
                 break;
             case 'webserv':
-                var newURL = dhInitialURL + prepSearchString(text.substring(7)) + '&type=5&def=0';
+                var newURL = dhInitialURL + prepSearchString(text.substring(8)) + '&type=5&def=0';
                 break;
             case 'pg':
-                var newURL = dhInitialURL + prepSearchString(text.substring(2)) + '&type=2';
+                var newURL = dhInitialURL + prepSearchString(text.substring(3)) + '&type=2';
                 break;
             case 'metric':
-                var newURL = dhInitialURL + prepSearchString(text.substring(6)) + '&type=4';
+                var newURL = dhInitialURL + prepSearchString(text.substring(7)) + '&type=4';
                 break;
             default:
                 var newURL = galaxyInitialURL + prepSearchString(text);
