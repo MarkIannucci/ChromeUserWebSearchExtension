@@ -30,6 +30,9 @@ chrome.omnibox.onInputEntered.addListener(
                     var newURL = sherlockInitialURL + 'view=slg/home#id=' + secondWord + '&view=1';
                 }
                 break;
+            case 'ra':
+                var newURL = sherlockInitialURL + 'view=ra/search#txt=' + prepSearchString(text.substring(2));
+                break;
             case 'nova':
                 if (isNaN(secondWord)) {
                     var newURL = novaInitialURL + '#addPt1&SearchTerm=' + prepSearchString(text.substring(5));
