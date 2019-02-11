@@ -14,7 +14,7 @@ chrome.omnibox.onInputEntered.addListener(
         // use a constant if the URL is getting reused
         const galaxyInitialURL = 'https://galaxy.epic.com/?#Search/searchWord=';
         const dhInitialURL = 'https://datahandbook.epic.com/Search/Index?SearchWord=';
-        const novaInitialURL = 'https://nova.epic.com/Select.aspx?';
+        const novaInitialURL = 'https://nova.epic.com/';
         const sherlockInitialURL = 'https://sherlock.epic.com/default.aspx?';
 
         // if user enters a keyword after the omnibox keyword, redirect search to different destination
@@ -25,39 +25,41 @@ chrome.omnibox.onInputEntered.addListener(
         switch (firstWord.toLowerCase()) {
             case 'sherlock':
             case 'slg':
-                if (isNaN(secondWord)) {
+                if (secondWord.toLowerCase() === 'new') {
+                    var newURL = sherlockInitialURL + 'view=slg/create';
+                } else if (isNaN(secondWord)) {
                     var newURL = sherlockInitialURL + 'view=slg/search#txt=' + prepSearchString(text.substring(firstWord.length + 1));
                 } else {
                     var newURL = sherlockInitialURL + 'view=slg/home#id=' + secondWord + '&view=1';
                 }
                 break;
             case 'ra':
-                var newURL = sherlockInitialURL + 'view=ra/search#txt=' + prepSearchString(text.substring(3));
+                var newURL = sherlockInitialURL + 'view=ra/search#txt=' + prepSearchString(text.substring(firstWord.length + 1));
                 break;
             case 'nova':
                 if (isNaN(secondWord)) {
-                    var newURL = novaInitialURL + '#addPt1&SearchTerm=' + prepSearchString(text.substring(5));
+                    var newURL = novaInitialURL + 'Search.aspx#addPt1&SearchTerm=' + prepSearchString(text.substring(firstWord.length + 1));
                 } else {
-                    var newURL = novaInitialURL + 'RnID=' + secondWord;
+                    var newURL = novaInitialURL + 'Select.aspx?RnID=' + secondWord;
                 }
                 break;
             case 'topic':
-                var newURL = 'https://userweb.epic.com/Search?Query=' + prepSearchString(text.substring(6));
+                var newURL = 'https://userweb.epic.com/Search?Query=' + prepSearchString(text.substring(firstWord.length + 1));
                 break;
             case 'galaxy':
-                var newURL = galaxyInitialURL + prepSearchString(text.substring(7));
+                var newURL = galaxyInitialURL + prepSearchString(text.substring(firstWord.length + 1));
                 break;
             case 'dh':
-                var newURL = dhInitialURL + prepSearchString(text.substring(3)) + '&type=1&scf=1,2,3&auf=1';
+                var newURL = dhInitialURL + prepSearchString(text.substring(firstWord.length + 1)) + '&type=1&scf=1,2,3&auf=1';
                 break;
             case 'cdd':
-                var newURL = dhInitialURL + prepSearchString(text.substring(4)) + '&type=6';
+                var newURL = dhInitialURL + prepSearchString(text.substring(firstWord.length + 1)) + '&type=6';
                 break;
             case 'webserv':
-                var newURL = dhInitialURL + prepSearchString(text.substring(8)) + '&type=5&def=0';
+                var newURL = dhInitialURL + prepSearchString(text.substring(firstWord.length + 1)) + '&type=5&def=0';
                 break;
             case 'pg':
-                var newURL = dhInitialURL + prepSearchString(text.substring(3)) + '&type=2';
+                var newURL = dhInitialURL + prepSearchString(text.substring(firstWord.length + 1)) + '&type=2';
                 break;
             case 'metric':
                 var newURL = dhInitialURL + prepSearchString(text.substring(7)) + '&type=4';
