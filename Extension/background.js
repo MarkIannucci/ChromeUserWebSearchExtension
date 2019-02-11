@@ -24,8 +24,9 @@ chrome.omnibox.onInputEntered.addListener(
 
         switch (firstWord.toLowerCase()) {
             case 'sherlock':
+            case 'slg':
                 if (isNaN(secondWord)) {
-                    var newURL = sherlockInitialURL + 'view=slg/search#txt=' + prepSearchString(text.substring(9));
+                    var newURL = sherlockInitialURL + 'view=slg/search#txt=' + prepSearchString(text.substring(firstWord.length + 1));
                 } else {
                     var newURL = sherlockInitialURL + 'view=slg/home#id=' + secondWord + '&view=1';
                 }
