@@ -14,7 +14,7 @@ chrome.omnibox.onInputEntered.addListener(
         // use a constant if the URL is getting reused
         const galaxyInitialURL = 'https://galaxy.epic.com/?#Search/searchWord=';
         const dhInitialURL = 'https://datahandbook.epic.com/Search/Index?SearchWord=';
-        const novaInitialURL = 'https://nova.epic.com/Select.aspx?';
+        const novaInitialURL = 'https://nova.epic.com/';
         const sherlockInitialURL = 'https://sherlock.epic.com/default.aspx?';
 
         // if user enters a keyword after the omnibox keyword, redirect search to different destination
@@ -38,9 +38,9 @@ chrome.omnibox.onInputEntered.addListener(
                 break;
             case 'nova':
                 if (isNaN(secondWord)) {
-                    var newURL = novaInitialURL + '#addPt1&SearchTerm=' + prepSearchString(text.substring(firstWord.length + 1));
+                    var newURL = novaInitialURL + 'Search.aspx#addPt1&SearchTerm=' + prepSearchString(text.substring(firstWord.length + 1));
                 } else {
-                    var newURL = novaInitialURL + 'RnID=' + secondWord;
+                    var newURL = novaInitialURL + 'Select.aspx?RnID=' + secondWord;
                 }
                 break;
             case 'topic':
