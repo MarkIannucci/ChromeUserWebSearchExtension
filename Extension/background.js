@@ -27,6 +27,8 @@ chrome.omnibox.onInputEntered.addListener(
             case 'slg':
                 if (isNaN(secondWord)) {
                     var newURL = sherlockInitialURL + 'view=slg/search#txt=' + prepSearchString(text.substring(firstWord.length + 1));
+                } else if (secondWord.toLowerCase() === 'new') {
+                    var newURL = sherlockInitialURL + 'view=slg/create';
                 } else {
                     var newURL = sherlockInitialURL + 'view=slg/home#id=' + secondWord + '&view=1';
                 }
@@ -60,7 +62,7 @@ chrome.omnibox.onInputEntered.addListener(
                 var newURL = dhInitialURL + prepSearchString(text.substring(firstWord.length + 1)) + '&type=2';
                 break;
             case 'metric':
-                var newURL = dhInitialURL + prepSearchString(text.substring(firstWord.length + 1)) + '&type=4';
+                var newURL = dhInitialURL + prepSearchString(text.substring(7)) + '&type=4';
                 break;
             default:
                 var newURL = galaxyInitialURL + prepSearchString(text);
