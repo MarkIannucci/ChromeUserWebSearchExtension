@@ -1,16 +1,17 @@
-# Chrome Epic UserWeb Search Extension
+# Epic UserWeb Search Extension
 
-Do you want to directly search Epic's galaxy without having to wait for the galaxy screen to load?  This extension allows you to do exactly that.  Simply type 'uw' followed by a space and your search term in Chrome's Omnibox and your query will be sent directly to galaxy.  Need to search Sherlock?  Simply type 'uw sherlock' followed by a space and your search term in the Omnibox and your query will go to Sherlock. 
+Do you want to directly search Epic's galaxy without having to wait for the galaxy screen to load?  This extension allows you to do exactly that.  Simply type 'uw' followed by a space and your search term in Chrome's Omnibox or Firefox's address bar and your query will be sent directly to galaxy.  Need to search Sherlock?  Simply type 'uw sherlock' followed by a space and your search term in the Omnibox and your query will go to Sherlock. 
 
 ## Getting Started
 
-Head over to the [Chrome Webstore](https://chrome.google.com/webstore/detail/epic-userweb-search/ginlmldponabcjidalfoboonnmloeolj) to add me to Chrome 
+Head over to the [Chrome Webstore](https://chrome.google.com/webstore/detail/epic-userweb-search/ginlmldponabcjidalfoboonnmloeolj) to add me to Chrome, or use a [Firefox Add-On](https://addons.mozilla.org/en-US/firefox/addon/epic-userweb-search/) if you prefer.
 
 ## Running the tests
 
 I'm afraid I didn't write any TDD tests for this project.  I welcome your pull requests.
 
 ## Built With
+[![Build Status](https://dev.azure.com/MarkIannucciGitHub/Chrome%20UserWeb%20Search%20Extension/_apis/build/status/MarkIannucci.ChromeUserWebSearchExtension?branchName=master)](https://dev.azure.com/MarkIannucciGitHub/Chrome%20UserWeb%20Search%20Extension/_build/latest?definitionId=1?branchName=master)
 
 * [Azure DevOps](https://dev.azure.com/MarkIannucciGitHub/Chrome%20UserWeb%20Search%20Extension)
 
