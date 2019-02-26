@@ -4,8 +4,7 @@ Do you want to directly search Epic's galaxy without having to wait for the gala
 
 ## Getting Started
 
-Head over to the [Chrome Webstore](https://chrome.google.com/webstore/detail/epic-userweb-search/ginlmldponabcjidalfoboonnmloeolj) to add me to Chrome.
-Or [Firefox Add-Ons](https://addons.mozilla.org/en-US/firefox/addon/epic-userweb-search/) to add me to Firefox.
+Head over to the [Chrome Webstore](https://chrome.google.com/webstore/detail/epic-userweb-search/ginlmldponabcjidalfoboonnmloeolj) to add me to Chrome, or use a [Firefox Add-On](https://addons.mozilla.org/en-US/firefox/addon/epic-userweb-search/) if you prefer.
 
 ## Running the tests
 
