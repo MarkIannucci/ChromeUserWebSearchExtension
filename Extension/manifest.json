@@ -1,5 +1,6 @@
 {
   "name": "Epic UserWeb Search",
+  "author": "Mark Iannucci",
   "description": "Type 'uw ' and your search term to instantly search the Epic UserWeb. 'uw sherlock ' searches Sherlock logs.",
   "version": "1.10.2",
   "background": {
