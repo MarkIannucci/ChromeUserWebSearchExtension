@@ -40,3 +40,9 @@ jobs:  # This workflow contains a single job called "build"
           file-name: EpicUserWebSearch.zip
           publish: true
           publish-target: trustedTesters
+
+      - name: upload json files
+        uses: actions/upload-artifact@v2
+        with:
+          name: WebstoreJsonOutput
+          path: '*.json'
