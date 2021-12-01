@@ -42,6 +42,7 @@ jobs:  # This workflow contains a single job called "build"
           publish-target: trustedTesters
 
       - name: upload json files
+        if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           name: WebstoreJsonOutput
