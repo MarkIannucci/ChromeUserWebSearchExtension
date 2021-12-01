@@ -31,7 +31,7 @@ jobs:  # This workflow contains a single job called "build"
           path: EpicUserWebSearch.zip
 
       - name: upload to chrome webstore test extension
-        uses: adunne09/chrome-extension-upload-action@master
+        uses: markiannucci/chrome-extension-upload-action@Avoid400WhenPublishing
         with: 
           client-id: ${{ secrets.CLIENT_ID }}
           client-secret: ${{ secrets.CLIENT_SECRET }}
