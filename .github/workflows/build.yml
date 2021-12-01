@@ -31,7 +31,7 @@ jobs:  # This workflow contains a single job called "build"
           path: EpicUserWebSearch.zip
 
       - name: upload to chrome webstore test extension
-        uses: Passiverecords/chrome-extension-upload-action@1.4.1
+        uses: adunne09/chrome-extension-upload-action@master
         with: 
           client-id: ${{ secrets.CLIENT_ID }}
           client-secret: ${{ secrets.CLIENT_SECRET }}
@@ -39,3 +39,4 @@ jobs:  # This workflow contains a single job called "build"
           app-id: kckhgocjclanicadmlgaapcgohmcaikc
           file-name: EpicUserWebSearch.zip
           publish: true
+          publish-target: trustedTesters
