@@ -13,7 +13,7 @@ on:
 
 jobs:  # This workflow contains a single job called "build"
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
@@ -29,3 +29,13 @@ jobs:  # This workflow contains a single job called "build"
         with:
           name: EpicUserWebSearch
           path: EpicUserWebSearch.zip
+
+      - name: upload to chrome webstore test extension
+        uses: Passiverecords/chrome-extension-upload-action@1.4.1
+        with: 
+          client-id: ${{ secrets.client_id }}
+          client-secret: ${{ secrets.client_secret }}
+          refresh-token: ${{ secrets.refresh_token }}
+          app-id: kckhgocjclanicadmlgaapcgohmcaikc
+          file-name: EpicUserWebSearch.zip
+          publish: true
