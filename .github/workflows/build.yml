@@ -17,6 +17,16 @@ jobs:  # This workflow contains a single job called "build"
     steps:
       - uses: actions/checkout@v2
 
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+
+      - name: bump version
+        uses: michmich112/version-bumper@v1.1.2
+        with:
+          options-file: ./.github/version-bumper-options.json
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: create extension.zip
         uses: TheDoctor0/zip-release@0.6.0
         with:

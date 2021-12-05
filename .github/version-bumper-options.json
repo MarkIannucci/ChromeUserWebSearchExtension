@@ -1,0 +1,18 @@
+{
+    "scheme": "org_semantic",
+    "versionFile": "./Extension/manifest.json",
+    "files": ["./Extension/manifest.json"],
+    "rules": [
+      {
+        "trigger": "commit",
+        "bump": "build"
+      },
+      {
+        "trigger": "commit",
+        "bump": "minor",
+        "branch": "main",
+        "reset": "build"
+      }
+    ],
+    "skip": true
+  }
