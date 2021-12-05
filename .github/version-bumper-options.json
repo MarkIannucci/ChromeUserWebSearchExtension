@@ -9,6 +9,10 @@
       "bump": "build"
     },
     {
+      "trigger": "pull-request",
+      "bump": "build"
+    },
+    {
       "trigger": "commit",
       "bump": "minor",
       "branch": "main",
