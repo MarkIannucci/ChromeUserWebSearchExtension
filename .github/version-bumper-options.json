@@ -5,7 +5,7 @@
   "files": ["./Extension/manifest.json"],
   "rules": [
     {
-      "trigger": "pull-request",
+      "trigger": "commit",
       "bump": "build"
     },
     {
