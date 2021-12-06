@@ -20,14 +20,14 @@ jobs:  # This workflow contains a single job called "build"
       - uses: actions/setup-node@v1
         with:
           node-version: '12'
-        if: ${{ env.GITHUB_REF_PROTECTED == 0}}
+        if: ${{ env.GITHUB_REF_PROTECTED == 0}} #don't install node if we aren't bumping version
 
       - name: bump version
         uses: michmich112/version-bumper@v1.1.4
         with:
           options-file: ./.github/version-bumper-options.json
           github-token: ${{ secrets.GITHUB_TOKEN }}
-        if: ${{ env.GITHUB_REF_PROTECTED == 0}}
+        if: ${{ env.GITHUB_REF_PROTECTED == 0}} #don't bump version on protected branches since we can't
 
       - name: create extension.zip
         uses: TheDoctor0/zip-release@0.6.0
