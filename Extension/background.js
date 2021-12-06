@@ -40,7 +40,7 @@ chrome.omnibox.onInputEntered.addListener(
                 if (isNaN(secondWord)) {
                     var newURL = sherlockInitialURL + 'view=checklist/search#txt=' + prepSearchString(text.substring(firstWord.length + 1));
                 } else {
-                    var newURL = sherlockInitialURL + 'view=checklist/search#' + secondWord;
+                    var newURL = sherlockInitialURL + 'view=checklist/search#id=' + secondWord;
                 }
                 break;
             case 'qan':
