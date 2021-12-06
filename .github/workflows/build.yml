@@ -22,7 +22,7 @@ jobs:  # This workflow contains a single job called "build"
           node-version: '12'
 
       - name: bump version
-        uses: michmich112/version-bumper@v1.1.2
+        uses: michmich112/version-bumper@v1.1.4
         with:
           options-file: ./.github/version-bumper-options.json
           github-token: ${{ secrets.GITHUB_TOKEN }}
