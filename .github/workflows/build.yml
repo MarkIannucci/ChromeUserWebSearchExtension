@@ -20,6 +20,7 @@ jobs:  # This workflow contains a single job called "build"
       - uses: actions/setup-node@v1
         with:
           node-version: '12'
+        if: ${{ env.GITHUB_REF_PROTECTED == 0}}
 
       - name: bump version
         uses: michmich112/version-bumper@v1.1.4
@@ -51,6 +52,7 @@ jobs:  # This workflow contains a single job called "build"
           file-name: EpicUserWebSearch.zip
           publish: true
           publish-target: trustedTesters
+        if: ${{ env.GITHUB_REF_NAME != 'refs/heads/main'}}
 
       - name: upload json files
         if: ${{ always() }}
