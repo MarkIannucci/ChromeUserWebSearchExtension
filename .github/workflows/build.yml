@@ -52,7 +52,7 @@ jobs:  # This workflow contains a single job called "build"
           file-name: EpicUserWebSearch.zip
           publish: true
           publish-target: trustedTesters
-        if: ${{ env.GITHUB_REF_NAME != 'refs/heads/main'}}
+        if: ${{ env.GITHUB_REF != 'refs/heads/main'}}
 
       # https://github.community/t/github-actions-as-status-checks/16666/16
       - name: Create status check ver bumped version
@@ -80,7 +80,7 @@ jobs:  # This workflow contains a single job called "build"
           file-name: EpicUserWebSearch.zip
           publish: true
           publish-target: default
-        if: ${{ env.GITHUB_REF_NAME == 'refs/heads/main'}}
+        if: ${{ env.GITHUB_REF == 'refs/heads/main'}}
 
       - name: upload json files
         if: ${{ always() }}
