@@ -37,7 +37,18 @@ chrome.omnibox.onInputEntered.addListener(
                 var newURL = sherlockInitialURL + 'view=ra/search#txt=' + prepSearchString(text.substring(firstWord.length + 1));
                 break;
             case 'chk':
-                var newURL = sherlockInitialURL + 'view=checklist/search#txt=' + prepSearchString(text.substring(firstWord.length + 1));
+                if (isNaN(secondWord)) {
+                    var newURL = sherlockInitialURL + 'view=checklist/search#txt=' + prepSearchString(text.substring(firstWord.length + 1));
+                } else {
+                    var newURL = sherlockInitialURL + 'view=checklist/search#id=' + secondWord;
+                }
+                break;
+            case 'qan':
+                if (isNaN(secondWord)) {
+                    var newURL = sherlockInitialURL + 'view=zqn/search#es=1&txt=' + prepSearchString(text.substring(firstWord.length + 1));
+                } else {
+                    var newURL = sherlockInitialURL + 'view=zqn/search#es=1&id=' + secondWord ;
+                }
                 break;
             case 'nova':
                 if (isNaN(secondWord)) {
