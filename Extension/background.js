@@ -37,7 +37,11 @@ chrome.omnibox.onInputEntered.addListener(
                 var newURL = sherlockInitialURL + 'view=ra/search#txt=' + prepSearchString(text.substring(firstWord.length + 1));
                 break;
             case 'chk':
-                var newURL = sherlockInitialURL + 'view=checklist/search#txt=' + prepSearchString(text.substring(firstWord.length + 1));
+                if (isNaN(secondWord)) {
+                    var newURL = sherlockInitialURL + 'view=checklist/search#txt=' + prepSearchString(text.substring(firstWord.length + 1));
+                } else {
+                    var newURL = sherlockInitialURL + 'view=checklist/search#' + secondWord;
+                }
                 break;
             case 'qan':
                 if (isNanN(secondWord)) {
