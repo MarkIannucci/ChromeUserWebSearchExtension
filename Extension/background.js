@@ -36,6 +36,9 @@ chrome.omnibox.onInputEntered.addListener(
             case 'ra':
                 var newURL = sherlockInitialURL + 'view=ra/search#txt=' + prepSearchString(text.substring(firstWord.length + 1));
                 break;
+            case 'chk':
+                var newURL = sherlockInitialURL + 'view=checklist/search#txt=' + prepSearchString(text.substring(firstWord.length + 1));
+                break;
             case 'nova':
                 if (isNaN(secondWord)) {
                     var newURL = novaInitialURL + 'Search.aspx#addPt1&SearchTerm=' + prepSearchString(text.substring(firstWord.length + 1));
