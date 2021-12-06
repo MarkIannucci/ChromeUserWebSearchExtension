@@ -64,7 +64,7 @@ jobs:  # This workflow contains a single job called "build"
           -X POST \
           -H "Authorization: Bearer $GITHUB_TOKEN" \
           -H "Accept: application/vnd.github.v3+json" \
-          https://api.github.com/repos/{org}/{repo}/check-runs \
+          https://api.github.com/repos/MarkIannucci/ChromeUserWebSearchExtension/check-runs \
           -d '{"name":"build", "head_sha": "'"$BUILD_COMMIT"'", "status": "completed", "conclusion": "success" }'
         if: ${{ env.GITHUB_REF_PROTECTED == 0}} #only pass github the completed status check when we bump the version
 
