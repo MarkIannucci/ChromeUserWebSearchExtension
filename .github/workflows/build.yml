@@ -54,7 +54,21 @@ jobs:  # This workflow contains a single job called "build"
           publish-target: trustedTesters
         if: ${{ env.GITHUB_REF_NAME != 'refs/heads/main'}}
 
-      - name: upload to chrome webstore test extension
+      # https://github.community/t/github-actions-as-status-checks/16666/16
+      - name: Create status check ver bumped version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BUILD_COMMIT=$(git rev-parse HEAD)
+          curl \
+          -X POST \
+          -H "Authorization: Bearer $GITHUB_TOKEN" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/{org}/{repo}/check-runs \
+          -d '{"name":"build", "head_sha": "'"$BUILD_COMMIT"'", "status": "completed", "conclusion": "success" }'
+        if: ${{ env.GITHUB_REF_PROTECTED == 0}} #only pass github the completed status check when we bump the version
+
+      - name: upload to chrome webstore real extension
         uses: markiannucci/chrome-extension-upload-action@main
         with: 
           client-id: ${{ secrets.CLIENT_ID }}
