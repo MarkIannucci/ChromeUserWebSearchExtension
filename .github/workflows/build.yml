@@ -13,9 +13,19 @@ on:
 
 jobs:  # This workflow contains a single job called "build"
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+
+      - name: bump version
+        uses: michmich112/version-bumper@v1.1.4
+        with:
+          options-file: ./.github/version-bumper-options.json
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: create extension.zip
         uses: TheDoctor0/zip-release@0.6.0
@@ -29,3 +39,21 @@ jobs:  # This workflow contains a single job called "build"
         with:
           name: EpicUserWebSearch
           path: EpicUserWebSearch.zip
+
+      - name: upload to chrome webstore test extension
+        uses: markiannucci/chrome-extension-upload-action@main
+        with: 
+          client-id: ${{ secrets.CLIENT_ID }}
+          client-secret: ${{ secrets.CLIENT_SECRET }}
+          refresh-token: ${{ secrets.REFRESH_TOKEN }}
+          app-id: kckhgocjclanicadmlgaapcgohmcaikc
+          file-name: EpicUserWebSearch.zip
+          publish: true
+          publish-target: trustedTesters
+
+      - name: upload json files
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: WebstoreJsonOutput
+          path: '*.json'

@@ -1,0 +1,19 @@
+{
+  "scheme": "custom",
+  "schemeDefinition": "major.minor.build",
+  "versionFile": "./Extension/manifest.json",
+  "files": ["./Extension/manifest.json"],
+  "rules": [
+    {
+      "trigger": "pull-request",
+      "bump": "build"
+    },
+    {
+      "trigger": "commit",
+      "bump": "minor",
+      "branch": "main",
+      "reset": "build"
+    }
+  ],
+  "skip": true
+}
