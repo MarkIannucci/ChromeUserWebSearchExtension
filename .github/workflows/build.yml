@@ -26,6 +26,7 @@ jobs:  # This workflow contains a single job called "build"
         with:
           options-file: ./.github/version-bumper-options.json
           github-token: ${{ secrets.GITHUB_TOKEN }}
+        if: ${{ GITHUB_REF_PROTECTED == 0}}
 
       - name: create extension.zip
         uses: TheDoctor0/zip-release@0.6.0
