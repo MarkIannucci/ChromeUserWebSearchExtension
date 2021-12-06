@@ -52,7 +52,7 @@ jobs:  # This workflow contains a single job called "build"
           file-name: EpicUserWebSearch.zip
           publish: true
           publish-target: trustedTesters
-        if: ${{ endswith(env.GITHUB_REF_NAME, 'fixGHActions') }}
+        if: endswith(github.ref, 'fixGHActions')
 
       # https://github.community/t/github-actions-as-status-checks/16666/16
       - name: Create status check ver bumped version
