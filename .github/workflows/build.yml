@@ -54,6 +54,18 @@ jobs:  # This workflow contains a single job called "build"
           publish-target: trustedTesters
         if: ${{ env.GITHUB_REF_NAME != 'refs/heads/main'}}
 
+      - name: upload to chrome webstore test extension
+        uses: markiannucci/chrome-extension-upload-action@main
+        with: 
+          client-id: ${{ secrets.CLIENT_ID }}
+          client-secret: ${{ secrets.CLIENT_SECRET }}
+          refresh-token: ${{ secrets.REFRESH_TOKEN }}
+          app-id: ginlmldponabcjidalfoboonnmloeolj
+          file-name: EpicUserWebSearch.zip
+          publish: true
+          publish-target: default
+        if: ${{ env.GITHUB_REF_NAME == 'refs/heads/main'}}
+
       - name: upload json files
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
