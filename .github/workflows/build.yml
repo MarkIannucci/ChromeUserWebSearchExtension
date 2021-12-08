@@ -45,7 +45,6 @@ jobs:  # This workflow contains a single job called "build"
           path: EpicUserWebSearch.zip
 
       - id: output-version-commit
-        name: output-version-commit
         run: |
           VERSION_COMMIT=$(git rev-parse HEAD)
           echo $VERSION_COMMIT
