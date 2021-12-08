@@ -14,6 +14,8 @@ on:
 jobs:  # This workflow contains a single job called "build"
   build:
     runs-on: ubuntu-latest
+    outputs:
+      version_commit: ${{ steps.output-version-commit.outputs.version_commit }}
     steps:
       - uses: actions/checkout@v2
 
@@ -73,7 +75,7 @@ jobs:  # This workflow contains a single job called "build"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ env.GITHUB_REPOSITORY }}
           GITHUB_WORKFLOW: ${{ env.GITHUB_WORKFLOW }}
-          BUILD_COMMIT: ${{jobs.build.steps.output-version-commit.outputs.version_commit }}
+          BUILD_COMMIT: ${{ needs.build.outputs.version_commit }}
         run: |
           curl \
           -X POST \
