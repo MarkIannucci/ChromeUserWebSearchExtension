@@ -41,13 +41,14 @@ jobs:  # This workflow contains a single job called "build"
         with:
           name: EpicUserWebSearch
           path: EpicUserWebSearch.zip
+
+      - name: output-version-commit
+        run: echo "::set-output name=version_commit::$(git rev-parse HEAD)"
   
   deploy-to-chrome: #create a second job so secrets aren't potentially exposed to third-party code
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: actions/checkout@v2
-      
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
@@ -72,8 +73,8 @@ jobs:  # This workflow contains a single job called "build"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ env.GITHUB_REPOSITORY }}
           GITHUB_WORKFLOW: ${{ env.GITHUB_WORKFLOW }}
+          BUILD_COMMIT: ${{jobs.build.steps.output-version-commit.outputs.version_commit }}
         run: |
-          BUILD_COMMIT=$(git rev-parse HEAD)
           curl \
           -X POST \
           -H "Authorization: Bearer $GITHUB_TOKEN" \
