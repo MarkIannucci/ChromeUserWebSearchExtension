@@ -45,7 +45,9 @@ jobs:  # This workflow contains a single job called "build"
           path: EpicUserWebSearch.zip
 
       - name: output-version-commit
-        run: echo "::set-output name=version_commit::$(git rev-parse HEAD)"
+        run: |
+          VERSION_COMMIT=$(git rev-parse HEAD)
+          echo "::set-output name=version_commit::$VERSION_COMMIT"
   
   deploy-to-chrome: #create a second job so secrets aren't potentially exposed to third-party code
     runs-on: ubuntu-latest
