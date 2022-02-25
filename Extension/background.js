@@ -16,6 +16,7 @@ chrome.omnibox.onInputEntered.addListener(
         const dhInitialURL = 'https://datahandbook.epic.com/Search/Index?SearchWord=';
         const novaInitialURL = 'https://nova.epic.com/';
         const sherlockInitialURL = 'https://sherlock.epic.com/default.aspx?';
+        const forumURL = 'https://userweb.epic.com/Search?Query=';
 
         // if user enters a keyword after the omnibox keyword, redirect search to different destination
         var splitText = text.split(' ');
@@ -58,7 +59,9 @@ chrome.omnibox.onInputEntered.addListener(
                 }
                 break;
             case 'topic':
-                var newURL = 'https://userweb.epic.com/Search?Query=' + prepSearchString(text.substring(firstWord.length + 1));
+            case 'forums':
+            case 'fm':
+                var newURL = forumURL + prepSearchString(text.substring(firstWord.length + 1));
                 break;
             case 'galaxy':
                 var newURL = galaxyInitialURL + prepSearchString(text.substring(firstWord.length + 1));
