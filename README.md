@@ -12,7 +12,7 @@ I'm afraid I didn't write any TDD tests for this project. I welcome your pull re
 
 ## Built With
 
-[![Build Status](https://dev.azure.com/MarkIannucciGitHub/Chrome%20UserWeb%20Search%20Extension/_apis/build/status/MarkIannucci.ChromeUserWebSearchExtension?branchName=master)](https://dev.azure.com/MarkIannucciGitHub/Chrome%20UserWeb%20Search%20Extension/_build/latest?definitionId=1?branchName=master)
+[![Build Status](https://dev.azure.com/MarkIannucciGitHub/Chrome%20UserWeb%20Search%20Extension/_apis/build/status/MarkIannucci.ChromeUserWebSearchExtension?branchName=main)](https://dev.azure.com/MarkIannucciGitHub/Chrome%20UserWeb%20Search%20Extension/_build/latest?definitionId=1?branchName=main)
 
 - [Azure DevOps](https://dev.azure.com/MarkIannucciGitHub/Chrome%20UserWeb%20Search%20Extension)
 
