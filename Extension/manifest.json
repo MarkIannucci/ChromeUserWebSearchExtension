@@ -1,18 +1,18 @@
 {
   "name": "Epic UserWeb Search",
   "description": "Type 'uw ' and your search term to instantly search the Epic UserWeb. 'uw sherlock ' searches Sherlock logs.",
-  "version": "1.10.34",
+  "version": "1.10.35",
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },
-  "omnibox": { "keyword" : "uw" },
+  "omnibox": { "keyword": "uw" },
   "manifest_version": 2,
   "browser_action": {
     "default_icon": {
       "16": "newtab_search16.png",
       "32": "newtab_search32.png"
-      }
+    }
   },
   "icons": {
     "16": "newtab_search16.png",
