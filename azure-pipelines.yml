@@ -4,24 +4,20 @@
 # https://aka.ms/yaml
 
 resources:
-- repo: self
+  - repo: self
 queue:
   name: Hosted VS2017
 steps:
-- task: ArchiveFiles@2
-  displayName: 'Archive Extension'
-  inputs:
-    rootFolderOrFile: Extension
+  - task: ArchiveFiles@2
+    displayName: 'Archive Extension'
+    inputs:
+      rootFolderOrFile: Extension
 
-    includeRootFolder: false
+      includeRootFolder: false
 
-    archiveFile: '$(Build.ArtifactStagingDirectory)/EpicUserWebSearch.zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/EpicUserWebSearch.zip'
 
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: drop'
-
-  continueOnError: true
-
-
-
+    continueOnError: true
