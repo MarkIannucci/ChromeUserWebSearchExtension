@@ -1,7 +1,7 @@
 {
   "name": "Epic UserWeb Search",
   "description": "Type 'uw ' and your search term to instantly search the Epic UserWeb. 'uw sherlock ' searches Sherlock logs.",
-  "version": "1.10.35",
+  "version": "1.10.42",
   "background": {
     "scripts": ["background.js"],
     "persistent": false

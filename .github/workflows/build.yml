@@ -14,6 +14,8 @@ on:
 jobs:  # This workflow contains a single job called "build"
   build:
     runs-on: ubuntu-latest
+    outputs:
+      version_commit: ${{ steps.output-version-commit.outputs.version_commit }}
     steps:
       - uses: actions/checkout@v2
 
@@ -23,14 +25,14 @@ jobs:  # This workflow contains a single job called "build"
         if: ${{ github.ref_protected == 0}} #don't install node if we aren't bumping version
 
       - name: bump version
-        uses: michmich112/version-bumper@v1.1.4
+        uses: michmich112/version-bumper@319a22fd31a212eb26cfb33c40fffa37c6a0c099 # 1.2.0
         with:
           options-file: ./.github/version-bumper-options.json
           github-token: ${{ secrets.GITHUB_TOKEN }}
         if: ${{ github.ref_protected == 0}} #don't bump version on protected branches since we can't
 
       - name: create extension.zip
-        uses: TheDoctor0/zip-release@0.6.0
+        uses: TheDoctor0/zip-release@4fb9e4ff72847dd3d1c111cf63834e353ed7cb3d  # 0.6.0
         with:
           type: zip
           filename: EpicUserWebSearch.zip
@@ -42,6 +44,23 @@ jobs:  # This workflow contains a single job called "build"
           name: EpicUserWebSearch
           path: EpicUserWebSearch.zip
 
+      - id: output-version-commit
+        name: output-version-commit
+        run: |
+          VERSION_COMMIT=$(git rev-parse HEAD)
+          echo $VERSION_COMMIT
+          echo "::set-output name=version_commit::$VERSION_COMMIT"
+  
+  deploy-to-chrome: #create a second job so secrets aren't potentially exposed to third-party code
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: EpicUserWebSearch
+          path: ./
+      
       - name: upload to chrome webstore test extension
         uses: markiannucci/chrome-extension-upload-action@main
         with: 
@@ -60,8 +79,8 @@ jobs:  # This workflow contains a single job called "build"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ env.GITHUB_REPOSITORY }}
           GITHUB_WORKFLOW: ${{ env.GITHUB_WORKFLOW }}
+          BUILD_COMMIT: ${{ needs.build.outputs.version_commit }}
         run: |
-          BUILD_COMMIT=$(git rev-parse HEAD)
           curl \
           -X POST \
           -H "Authorization: Bearer $GITHUB_TOKEN" \
