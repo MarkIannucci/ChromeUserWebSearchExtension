@@ -25,7 +25,7 @@ jobs:  # This workflow contains a single job called "build"
         if: ${{ github.ref_protected == 0}} #don't install node if we aren't bumping version
 
       - name: bump version
-        uses: michmich112/version-bumper@64016f6fa6e645e3bd0490c7dcc2768f16c8d053 # 1.1.4
+        uses: michmich112/version-bumper@319a22fd31a212eb26cfb33c40fffa37c6a0c099 # 1.2.0
         with:
           options-file: ./.github/version-bumper-options.json
           github-token: ${{ secrets.GITHUB_TOKEN }}
