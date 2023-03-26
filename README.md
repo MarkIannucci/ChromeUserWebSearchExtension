@@ -1,3 +1,7 @@
+# Archived
+
+I am not working in healthcare at the moment and have archived this project.  If you would like to take on ownership, send me a message and we can discuss.
+
 # Epic UserWeb Search Extension
 
 Do you want to directly search Epic's galaxy without having to wait for the galaxy screen to load? This extension allows you to do exactly that. Simply type 'uw' followed by a space and your search term in Chrome's Omnibox or Firefox's address bar and your query will be sent directly to galaxy. Need to search Sherlock? Simply type 'uw sherlock' followed by a space and your search term in the Omnibox and your query will go to Sherlock.
