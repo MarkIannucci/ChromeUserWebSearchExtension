@@ -70,17 +70,17 @@ jobs:  # This workflow contains a single job called "build"
           -d '{"name":"'"$GITHUB_WORKFLOW"'", "head_sha": "'"$BUILD_COMMIT"'", "status": "completed", "conclusion": "success" }'
         if: ${{ github.ref_protected == 0}} #only pass github the completed status check when we bump the version
 
-      - name: upload to chrome webstore real extension
-        uses: markiannucci/chrome-extension-upload-action@main
-        with: 
-          client-id: ${{ secrets.CLIENT_ID }}
-          client-secret: ${{ secrets.CLIENT_SECRET }}
-          refresh-token: ${{ secrets.REFRESH_TOKEN }}
-          app-id: ginlmldponabcjidalfoboonnmloeolj
-          file-name: EpicUserWebSearch.zip
-          publish: true
-          publish-target: default
-        if: ${{ github.ref == 'refs/heads/main'}}
+#      - name: upload to chrome webstore real extension
+#       uses: markiannucci/chrome-extension-upload-action@main
+#        with: 
+#          client-id: ${{ secrets.CLIENT_ID }}
+#          client-secret: ${{ secrets.CLIENT_SECRET }}
+#          refresh-token: ${{ secrets.REFRESH_TOKEN }}
+#          app-id: ginlmldponabcjidalfoboonnmloeolj
+#          file-name: EpicUserWebSearch.zip
+#          publish: true
+#          publish-target: default
+#        if: ${{ github.ref == 'refs/heads/main'}}
 
       - name: upload json files
         if: ${{ always() }}
